@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='frsc.css') }}">
+</head>
+<body>
+    <br><br><br><br>
+    <h1>Rock, Paper, Scissors Game</h1>
+    
+    <div class="inform">
+    <form action="/play" method="post">
+        <label for="choice">Choose: </label>
+        <select name="choice" id="choice">
+            <option value="rock">Rock</option>
+            <option value="paper">Paper</option>
+            <option value="scissors">Scissors</option>
+        </select>
+        <button type="submit">Play</button>
+    </form>
+    </div>
+
+    <div class ="out">
+    {% if player_choice and computer_choice and result %}
+        <p>Your choice: {{ player_choice }}</p>
+        <p>Computer's choice: {{ computer_choice }}</p>
+        <p>{{ result }}</p>
+    {% endif %}
+    </div>
+</body>
+</html>
